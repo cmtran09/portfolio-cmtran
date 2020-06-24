@@ -6,9 +6,9 @@ import 'bulma/css/bulma.css'
 export default function Home() {
   return (
     <section className="section">
-      <div className="container">
-        <div className="container">
-          <div className="level header">
+      <div className="container main-wrapper">
+        <div className="container header-wrapper">
+          <div className="level header is-mobile">
             <p className="level-left">Portfolio</p>
             <p className="level-item">2020</p>
             <p className="level-right">London</p>
@@ -17,14 +17,21 @@ export default function Home() {
         <h1 className="name">
           Cuong Tran
         </h1>
-        <p className="title">
-          I am a Junior Software Engineer from London, recently graduated from General Assembly. Here are pieces of my work up to this point. I hope you enjoy having a look.
-        </p>
-        <ul>
-          <li>GitHub</li>
-          <li>LinkedIn</li>
-          <li>CodeWars</li>
-        </ul>
+        <div class="columns main-column">
+          <div class="column is-three-quarters">
+            <p className="about">
+              I'm a Junior Software Engineer from London, recently graduated at General Assembly.
+              Here are some pieces of my work. Hope you enjoy having a look.
+            </p>
+          </div>
+          <div class="column">
+            <ul className="social-links">
+              <li>GitHub</li>
+              <li>LinkedIn</li>
+              <li>CodeWars</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   )
