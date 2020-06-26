@@ -8,6 +8,7 @@ module.exports = {
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve('dist'),
+		publicPath: '/'
 		// publicPath: '/project-2-potterapi-pair/'
 	},
 	module: {
@@ -31,7 +32,7 @@ module.exports = {
 		historyApiFallback: true
 	},
 	plugins: [
-		new Dotenv(),
+		// new Dotenv(),
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
