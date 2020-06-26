@@ -27,13 +27,13 @@ export default function Home() {
           </div>
           <h1 className="name">
             Cuong Tran
-        </h1>
+          </h1>
           <div className="columns main-column is-mobile">
             <div className="column is-three-quarters">
               <p className="about">
-                I'm a Junior Software Engineer from London, recently graduated at General Assembly.
+                I'm a Software Engineer from London, recently graduated at General Assembly.
                 Here are some pieces of my work. Hope you enjoy having a look.
-            </p>
+              </p>
             </div>
             <div className="column">
               <ul className="links">
@@ -45,9 +45,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section">
-        <div className="skills-wrapper">
-          <button onClick={e=>console.log(skill)}>click</button>
+      <section className="section skills-section">
+        <div className="container skills-wrapper">
+          {/* <button onClick={e=>console.log(skill)}>click</button> */}
           <ul className="skills">
             <span className="icon"><img onClick={e => currentSkill(e)} skillname="JavaScript" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/javascript.svg" /></span>
             <span className="icon"><img onClick={e => currentSkill(e)} skillname="HTML5" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/html5.svg" /></span>
@@ -85,6 +85,40 @@ export default function Home() {
             <span className="icon"><img onClick={e => currentSkill(e)} skillname="StackOverflow" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/stackoverflow.svg" /></span>
             <span className="icon"><img onClick={e => currentSkill(e)} skillname="Figma" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/figma.svg" /></span>
           </ul>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container project-wrapper">
+          <p>project 1</p>
+        </div>
+        <div className="container project-wrapper">
+          <p>project 2</p>
+        </div>
+        <div className="container project-wrapper">
+          <p>project 3</p>
+        </div>
+        <div className="container project-wrapper">
+          <p>project 4</p>
+        </div>
+        <div className="container project-wrapper">
+          <p>project 5</p>
+        </div>
+        <div className="container project-wrapper">
+          <p>project 6</p>
+        </div>
+        <div className="container project-wrapper">
+          <p>project 7</p>
+        </div>
+        <div className="container project-wrapper">
+          <p>project 8</p>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container contact-wrapper">
+          <h1 className="contact">Contact</h1>
+          <p className="about">
+            I am currently looking for a Junior Software Engineer/Front-End/Fullstack role in London. Feel free to drop me a LinkedIn message or email at cuomantran@gmail.com.
+          </p>
         </div>
       </section>
     </main>

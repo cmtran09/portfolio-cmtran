@@ -13,6 +13,11 @@
   padding-bottom: 15px;
 }
 
+div.container.main-wrapper{
+  padding-bottom: 190px;
+  border-bottom: 2px solid black;
+}
+
 main{
   margin-top: 60px;
   margin-left: 7%;
@@ -31,28 +36,30 @@ section.section{
 
 h1.name{
   margin:15px 0 20px 0;
+  font-family: 'Lato', sans-serif;
+  // font-size: 10vw;
+  font-size: 11.2vw;
+  color: black
 }
+
+// padding-bottom: 190px;
+// border-bottom: 2px solid black;
 
 div.container.header-wrapper{
   font-family: 'Lato', sans-serif;
   font-size: 2vw;
+  
 }
 
 div.columns.main-column{
-  padding-bottom: 190px;
-  border-bottom: 2px solid black;
+  margin-left: 0;
+  margin-right: 0;
 }
-
-// ul.social-links{
-//   font-family: 'Lato', sans-serif;
-//   font-size: 2vw;
-//   // border:2px solid black;
-// }
 
 ul.links{
   font-family: 'Lato', sans-serif;
   font-size: 2vw;
-  border:2px solid black;
+  // border:2px solid black;
 }
 
 p.about{
@@ -61,23 +68,23 @@ p.about{
   padding-right: 40px;
 }
 
-h1.name{
-  font-family: 'Lato', sans-serif;
-  // font-size: 10vw;
-  font-size: 11.2vw;
-  color: black
-}
-
 ul.skills{
   font-size: 5vw;
 }
 
+.skills-section{
+
+}
+
 .skills-wrapper {
   width: 100%;
+  border-bottom: 2px solid black;
+  padding-bottom: 48px;
 }
 
 span.icon{
-  margin: 10px;
+  margin: 8px;
+  width: 3vw;
 }
 // span.icon{
 //   margin: 10px;
@@ -86,3 +93,30 @@ span.icon{
 i.skills-icon{
   // display:
 }
+
+div.container.project-wrapper{
+  padding-bottom: 4vw;
+  padding-top: 4vw;
+  border-bottom: 1px solid black;
+}
+div.container.project-wrapper:last-child{
+  padding-bottom: 200px;
+  padding-top: 4vw;
+  border-bottom: 2px solid red;
+}
+
+h1.contact{
+  margin:15px 0 20px 0;
+  font-family: 'Lato', sans-serif;
+  // font-size: 10vw;
+  font-size: 8vw;
+  color: black
+}
+
+div.container.contact-wrapper{
+  border-bottom: 2px solid black;
+  padding-bottom: 40px;
+  margin-bottom: 50px;
+}
+
+
