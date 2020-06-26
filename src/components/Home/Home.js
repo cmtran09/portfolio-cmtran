@@ -17,7 +17,7 @@ export default function Home() {
         <h1 className="name">
           Cuong Tran
         </h1>
-        <div class="columns main-column">
+        <div class="columns main-column is-mobile">
           <div class="column is-three-quarters">
             <p className="about">
               I'm a Junior Software Engineer from London, recently graduated at General Assembly.
