@@ -16,6 +16,9 @@ export default function Home() {
 
   return (
     <main>
+      <div className="skill-namer">
+        <p className="skill-text">{skill ? skill : "SKILLNAME"}</p>
+      </div>
       <section className="section">
         <div className="container main-wrapper">
           <div className="container header-wrapper">
