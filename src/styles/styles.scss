@@ -5,9 +5,6 @@
   box-sizing: border-box;
 }
 
-// .wrapper{
-//   font-size:200%;
-// }
 .header-wrapper{
   border-bottom: 2px solid black;
   padding-bottom: 15px;
@@ -19,6 +16,7 @@ div.container.main-wrapper{
 }
 
 main{
+  visibility: hidden;
   margin-top: 60px;
   margin-left: 7%;
   width: 65%;
@@ -30,9 +28,10 @@ section.section{
   // width: 65%;
 }
 
-// .div.container.main-wrapper{
-//   width: 20px;
-// }
+div.name-container{
+  height: 20vw;
+  overflow: hidden;
+}
 
 h1.name{
   margin:15px 0 20px 0;
@@ -41,9 +40,6 @@ h1.name{
   font-size: 11.2vw;
   color: black
 }
-
-// padding-bottom: 190px;
-// border-bottom: 2px solid black;
 
 div.container.header-wrapper{
   font-family: 'Lato', sans-serif;
@@ -54,6 +50,11 @@ div.container.header-wrapper{
 div.columns.main-column{
   margin-left: 0;
   margin-right: 0;
+}
+
+.link-container{
+  height: 3vw;
+  overflow: hidden;
 }
 
 ul.links{
@@ -84,15 +85,15 @@ div.skill-namer{
   // border: 5px solid black;
 }
 
+span.icon{
+  // overflow: hidden;
+}
+
+
 p.skill-text{
   font-family: 'Lato', sans-serif;
   font-size: 9vw;
   color: black
-}
-
-
-.skills-section{
-
 }
 
 .skills-wrapper {
@@ -105,13 +106,6 @@ span.icon{
   margin: 8px;
   width: 3vw;
 }
-// span.icon{
-//   margin: 10px;
-// }
-
-i.skills-icon{
-  // display:
-}
 
 div.container.project-wrapper{
   padding-bottom: 4vw;
@@ -122,6 +116,14 @@ div.container.project-wrapper:last-child{
   padding-bottom: 200px;
   padding-top: 4vw;
   border-bottom: 2px solid red;
+}
+
+p.project-name{
+  // margin:15px 0 20px 0;
+  font-family: 'Lato', sans-serif;
+  // font-size: 10vw;
+  font-size: 5vw;
+  color: black
 }
 
 h1.contact{

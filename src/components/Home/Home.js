@@ -1,26 +1,76 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { gsap, TweenMax, TimelineLite, Power3, Sine } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 import 'bulma/css/bulma.css'
 // import '../styles/styles.scss'
 
 export default function Home() {
   const [skill, setSkill] = useState('')
+  let main = useRef(null)
+  let name = useRef(null)
+  let content = useRef(null)
+  let skillIcons = useRef(null)
+  let tl = new TimelineLite()
+
+  useEffect(() => {
+    //Name var
+    const myName = name.firstElementChild
+    console.log('myName', myName)
+    //Link vars
+    const firstLink = content.children[2].children[1].children[0].children[0]
+    const secondLink = firstLink.nextSibling
+    const thirdLink = secondLink.nextSibling
+    // skills js var
+    const skillsArr = skillIcons.children
+    console.log('arr',skillIcons.children)
+    const skillJS = skillIcons.firstElementChild
+    const skillhtml5 = skillJS.nextSibling
+    console.log(skillJS)
+    //Remove Initial Flash
+    TweenMax.to(main, 0, { css: { visibility: 'visible' } })
+    // Name animation
+    tl
+      .from(myName, 1.2, { y: 800, ease: Power3.easeOut })
+      .from(myName, 2, { opacity: 0, ease: Sine.easeOut }, 0.2)
+    // Links animation
+    tl.staggerFrom([firstLink.children, secondLink.children, thirdLink.children], 1, {
+      y: 33,
+      ease: Power3.easeOut,
+      delay: 0.4
+    }, 0.3)
+    //SKill animation
+    TweenMax.from(skillsArr, {
+      scrollTrigger: {
+        trigger: skillsArr,
+        start: "bottom center", 
+        markers: true
+      },
+      x: 80
+    });
+    // TweenMax.from(skillhtml5, {
+    //   scrollTrigger: {
+    //     trigger: skillhtml5,
+    //     start: "bottom center", 
+    //     markers: true
+    //   },
+    //   x: 80
+    // });
+  }, [])
 
   const currentSkill = (e) => {
     setSkill(e.target.attributes.getNamedItem("skillname").value)
   }
 
-  const showSkill = (e) => {
-    console.log(e.target.attributes.getNamedItem("skillname").value)
-  }
-
   return (
-    <main>
+    <main ref={elem => main = elem}>
       <div className="skill-namer">
-        <p className="skill-text">{skill ? skill : ""}</p>
+        <p className="skill-text fade-in">{skill ? skill : ""}</p>
       </div>
       <section className="section">
-        <div className="container main-wrapper">
+        <div className="container main-wrapper" ref={elem => content = elem}>
           <div className="container header-wrapper">
             <div className="level header is-mobile">
               <p className="level-left">Portfolio</p>
@@ -28,10 +78,12 @@ export default function Home() {
               <p className="level-right">London</p>
             </div>
           </div>
-          <h1 className="name">
-            Cuong Tran
-          </h1>
-          <div className="columns main-column is-mobile">
+          <div className="name-container" ref={elem => name = elem}>
+            <h1 className="name">
+              Cuong Tran
+            </h1>
+          </div>
+          <div className="columns main-column is-mobile hero-content">
             <div className="column is-three-quarters">
               <p className="about">
                 I'm a Software Engineer from London, recently graduated at General Assembly.
@@ -40,9 +92,15 @@ export default function Home() {
             </div>
             <div className="column">
               <ul className="links">
-                <li>GitHub</li>
-                <li>LinkedIn</li>
-                <li>CodeWars</li>
+                <div className="link-container">
+                  <li>GitHub</li>
+                </div>
+                <div className="link-container">
+                  <li>LinkedIn</li>
+                </div>
+                <div className="link-container">
+                  <li>CodeWars</li>
+                </div>
               </ul>
             </div>
           </div>
@@ -51,7 +109,7 @@ export default function Home() {
       <section className="section skills-section">
         <div className="container skills-wrapper">
           {/* <button onClick={e=>console.log(skill)}>click</button> */}
-          <ul className="skills">
+          <ul ref={elem => skillIcons = elem} className="skills">
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="JavaScript" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/javascript.svg" /></span>
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="HTML5" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/html5.svg" /></span>
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="html" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/html5.svg" /></span>
@@ -87,33 +145,34 @@ export default function Home() {
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="Insomnia" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/insomnia.svg" /></span>
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="StackOverflow" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/stackoverflow.svg" /></span>
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="Figma" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/figma.svg" /></span>
+            <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="Greensock" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/greensock.svg" /></span>
           </ul>
         </div>
       </section>
       <section className="section">
         <div className="container project-wrapper">
-          <p>project 1</p>
+          <p className="project-name">project 1</p>
         </div>
         <div className="container project-wrapper">
-          <p>project 2</p>
+          <p className="project-name">project 2</p>
         </div>
         <div className="container project-wrapper">
-          <p>project 3</p>
+          <p className="project-name">project 3</p>
         </div>
         <div className="container project-wrapper">
-          <p>project 4</p>
+          <p className="project-name">project 4</p>
         </div>
         <div className="container project-wrapper">
-          <p>project 5</p>
+          <p className="project-name">project 5</p>
         </div>
         <div className="container project-wrapper">
-          <p>project 6</p>
+          <p className="project-name">project 6</p>
         </div>
         <div className="container project-wrapper">
-          <p>project 7</p>
+          <p className="project-name">project 7</p>
         </div>
         <div className="container project-wrapper">
-          <p>project 8</p>
+          <p className="project-name">project 8</p>
         </div>
       </section>
       <section className="section">
