@@ -7,6 +7,8 @@ gsap.registerPlugin(ScrollTrigger);
 import 'bulma/css/bulma.css'
 // import '../styles/styles.scss'
 
+import ProjectLink from '../ProjectLink/ProjectLink'
+
 export default function Home() {
   const [skill, setSkill] = useState('')
   let main = useRef(null)
@@ -15,6 +17,7 @@ export default function Home() {
   let skillIcons = useRef(null)
   let skillSection = useRef(null)
   let skillLabel = useRef(null)
+  let projects = useRef(null)
   let tl = new TimelineLite()
 
   // useEffect(() => {
@@ -65,6 +68,38 @@ export default function Home() {
       stagger: 0.1,
       opacity: 0,
     }, 0.1);
+
+
+    //Projects Var
+    const projectsArr = projects.children
+    console.log(projectsArr)
+    console.log(typeof(projectsArr))
+    TweenMax.from(projectsArr[0], 0.07, {
+      scrollTrigger: {
+        trigger: projectsArr[0],
+        start: "top center",
+        markers: true,
+        // scrub: true
+      },
+      x: 80,
+      stagger: 0.1,
+      opacity: 0,
+    }, 0.1);
+
+    for (const [key, value] of Object.entries(projectsArr)) {
+      console.log(`OASDOJAOJD${key}: ${value}`);
+      TweenMax.from(value, 0.07, {
+        scrollTrigger: {
+          trigger: value,
+          start: "top center",
+          markers: true,
+          // scrub: true
+        },
+        x: 80,
+        stagger: 0.1,
+        opacity: 0,
+      }, 0.1);
+    }
   }, [])
 
   const handleIconMouseEnter = (e) => {
@@ -161,31 +196,15 @@ export default function Home() {
           </ul>
         </div>
       </section>
-      <section className="section">
-        <div className="container project-wrapper">
-          <p className="project-name">project 1</p>
-        </div>
-        <div className="container project-wrapper">
-          <p className="project-name">project 2</p>
-        </div>
-        <div className="container project-wrapper">
-          <p className="project-name">project 3</p>
-        </div>
-        <div className="container project-wrapper">
-          <p className="project-name">project 4</p>
-        </div>
-        <div className="container project-wrapper">
-          <p className="project-name">project 5</p>
-        </div>
-        <div className="container project-wrapper">
-          <p className="project-name">project 6</p>
-        </div>
-        <div className="container project-wrapper">
-          <p className="project-name">project 7</p>
-        </div>
-        <div className="container project-wrapper">
-          <p className="project-name">project 8</p>
-        </div>
+      <section className="section" ref={elem => projects = elem}>
+        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
       </section>
       <section className="section">
         <div className="container contact-wrapper">
