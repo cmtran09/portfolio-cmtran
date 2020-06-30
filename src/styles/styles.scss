@@ -81,9 +81,25 @@ div.skill-namer{
   width: 100vh;
   bottom: 0px;
   right: 0px;
+  opacity: 0;
   transform: rotate(-90deg) translate(100%, 0);
   transform-origin: right bottom;
-  // border: 5px solid black;
+}
+
+.skills-animation{
+  animation: skillAnimation 2.5s;
+}
+
+@keyframes skillAnimation {
+  0% {
+    opacity: 0;  
+  }
+  50%{
+    opacity: 1;  
+  }
+  100%{
+    opacity: 0;  
+  }
 }
 
 span.icon{
@@ -95,7 +111,6 @@ p.skill-text{
   font-family: 'Lato', sans-serif;
   font-size: 9vw;
   color: black;
-  opacity: 1;
 }
 
 .skills-wrapper {
