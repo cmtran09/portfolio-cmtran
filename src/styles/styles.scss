@@ -37,6 +37,7 @@ h1.name{
   margin:15px 0 20px 0;
   font-family: 'Lato', sans-serif;
   // font-size: 10vw;
+  opacity: 1;
   font-size: 11.2vw;
   color: black
 }
@@ -93,7 +94,8 @@ span.icon{
 p.skill-text{
   font-family: 'Lato', sans-serif;
   font-size: 9vw;
-  color: black
+  color: black;
+  opacity: 1;
 }
 
 .skills-wrapper {
@@ -104,7 +106,7 @@ p.skill-text{
 
 span.icon{
   margin: 8px;
-  width: 3vw;
+  width: 3.4vw;
   opacity: 1;
 }
 

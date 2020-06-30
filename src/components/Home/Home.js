@@ -15,24 +15,15 @@ export default function Home() {
   let skillIcons = useRef(null)
   let skillSection = useRef(null)
   let skillLabel = useRef(null)
-  console.log('skillLabel outside', skillLabel.firstElementChild)
   let tl = new TimelineLite()
-  let tlSkill = new TimelineLite()
 
   useEffect(() => {
-    //Skill Label var
+    let tlSkill = new TimelineLite()
     const skillLabelText = skillLabel.firstElementChild
+    console.log(skillLabelText)
     tlSkill
-      .from(skillLabelText, {
-        duration: 0.1,
-        x: 140,
-        opacity: 0,
-      })
-      .to(skillLabelText, {
-        duration: 0.1,
-        y: 140,
-        opacity: 1,
-      }, 2)
+      .from(skillLabelText, 2, { x: "50vh", opacity: 1 })
+      .to(skillLabelText, 2, { opacity: 0, ease: Power3, delay: 2 })
   }, [skill])
 
   useEffect(() => {
@@ -54,7 +45,7 @@ export default function Home() {
     // Name animation
     tl
       .from(myName, 1.2, { y: 800, ease: Power3.easeOut })
-      .from(myName, 2, { opacity: 0, ease: Sine.easeOut }, 0.2)
+      .from(myName, 2, { opacity: 0, ease: Sine.easeOut }, 0)
     // Links animation
     tl.staggerFrom([firstLink.children, secondLink.children, thirdLink.children], 1, {
       y: 33,
@@ -77,6 +68,11 @@ export default function Home() {
 
   const currentSkill = (e) => {
     setSkill(e.target.attributes.getNamedItem("skillname").value)
+  }
+
+  const currentSkillAnimation = (e) => {
+    let skillNameTl = new TimelineLite()
+    let currentSkill = e.target.attributes.getNamedItem("skillname").value
   }
 
   return (
