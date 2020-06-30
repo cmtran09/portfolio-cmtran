@@ -25,7 +25,7 @@ export default function Home() {
     const thirdLink = secondLink.nextSibling
     // skills js var
     const skillsArr = skillIcons.children
-    console.log('arr',skillIcons.children)
+    console.log('arr', skillIcons.children)
     const skillJS = skillIcons.firstElementChild
     const skillhtml5 = skillJS.nextSibling
     console.log(skillJS)
@@ -42,22 +42,17 @@ export default function Home() {
       delay: 0.4
     }, 0.3)
     //SKill animation
-    TweenMax.from(skillsArr, {
+    TweenMax.from(skillsArr, 0.1, {
       scrollTrigger: {
-        trigger: skillsArr,
-        start: "bottom center", 
-        markers: true
+        trigger: skillJS,
+        start: "top center",
+        markers: true,
+        // scrub: true
       },
-      x: 80
-    });
-    // TweenMax.from(skillhtml5, {
-    //   scrollTrigger: {
-    //     trigger: skillhtml5,
-    //     start: "bottom center", 
-    //     markers: true
-    //   },
-    //   x: 80
-    // });
+      x: 80,
+      stagger: 0.1,
+      opacity:0,
+    }, 0.1);
   }, [])
 
   const currentSkill = (e) => {
