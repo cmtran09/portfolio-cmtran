@@ -13,7 +13,27 @@ export default function Home() {
   let name = useRef(null)
   let content = useRef(null)
   let skillIcons = useRef(null)
+  let skillSection = useRef(null)
+  let skillLabel = useRef(null)
+  console.log('skillLabel outside', skillLabel.firstElementChild)
   let tl = new TimelineLite()
+  let tlSkill = new TimelineLite()
+
+  useEffect(() => {
+    //Skill Label var
+    const skillLabelText = skillLabel.firstElementChild
+    tlSkill
+      .from(skillLabelText, {
+        duration: 0.1,
+        x: 140,
+        opacity: 0,
+      })
+      .to(skillLabelText, {
+        duration: 0.1,
+        y: 140,
+        opacity: 1,
+      }, 2)
+  }, [skill])
 
   useEffect(() => {
     //Name var
@@ -44,14 +64,14 @@ export default function Home() {
     //SKill animation
     TweenMax.from(skillsArr, 0.1, {
       scrollTrigger: {
-        trigger: skillJS,
+        trigger: skillSection,
         start: "top center",
         markers: true,
         // scrub: true
       },
       x: 80,
       stagger: 0.1,
-      opacity:0,
+      opacity: 0,
     }, 0.1);
   }, [])
 
@@ -60,9 +80,9 @@ export default function Home() {
   }
 
   return (
-    <main ref={elem => main = elem}>
-      <div className="skill-namer">
-        <p className="skill-text fade-in">{skill ? skill : ""}</p>
+    <main ref={elem => main = elem} >
+      <div className="skill-namer" ref={elem => skillLabel = elem}>
+        <p className="skill-text">{skill ? skill : ""}</p>
       </div>
       <section className="section">
         <div className="container main-wrapper" ref={elem => content = elem}>
@@ -101,16 +121,16 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section skills-section">
+      <section className="section skills-section" ref={elem => skillSection = elem}>
         <div className="container skills-wrapper">
-          {/* <button onClick={e=>console.log(skill)}>click</button> */}
           <ul ref={elem => skillIcons = elem} className="skills">
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="JavaScript" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/javascript.svg" /></span>
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="HTML5" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/html5.svg" /></span>
-            <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="html" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/html5.svg" /></span>
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="CSS3" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/css3.svg" /></span>
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="Node.js" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/node-dot-js.svg" /></span>
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="Express.js" src="https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg"></img></span>
+            <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="React" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/react.svg" /></span>
+            <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="React Router" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/reactrouter.svg" /></span>
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="Python" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/python.svg" /></span>
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="Django" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/django.svg" /></span>
             <span className="icon"><img onMouseEnter={e => currentSkill(e)} skillname="PostgreSQL" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/postgresql.svg" /></span>
