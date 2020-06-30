@@ -88,14 +88,14 @@ export default function Home() {
 
     for (const [key, value] of Object.entries(projectsArr)) {
       console.log(`OASDOJAOJD${key}: ${value}`);
-      TweenMax.from(value, 0.07, {
+      TweenMax.from(value.children[0], 0.3, {
         scrollTrigger: {
           trigger: value,
           start: "top center",
           markers: true,
           // scrub: true
         },
-        x: 80,
+        y: -80,
         stagger: 0.1,
         opacity: 0,
       }, 0.1);
