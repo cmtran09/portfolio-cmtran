@@ -16,7 +16,7 @@ export default function ProjectLink({ projectName, projectLink, projectRepo }) {
     tl.reversed(!tl.reversed())
   }
   return (
-    <div className="container project-wrapper" onMouseOver={() => projectAnimation()} onMouseLeave={() => projectAnimation()}>
+    <div className="container project-wrapper" onMouseEnter={() => projectAnimation()} onMouseLeave={() => projectAnimation()}>
       <p className="project-name">{projectName}</p>
       <div ref={elem => deployedLink = elem} className="deployed-site">deployed</div>
       <div ref={elem => githubLink = elem} className="github-repo">github</div>

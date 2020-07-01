@@ -96,13 +96,10 @@ export default function Home() {
       }, 0.1);
 
       console.log(value.children, 'value object')
+      
 
     }
   }, [])
-
-  const handleProjectHover = (e) => {
-    console.log('hi')
-  }
 
 const handleIconMouseEnter = (e) => {
   setSkill(e.target.attributes.getNamedItem("skillname").value)
@@ -161,14 +158,14 @@ return (
       </div>
     </section >
     <section className="section" ref={elem => projects = elem}>
-      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" handleProjectHover={handleProjectHover}/>
-      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" handleProjectHover={handleProjectHover}/>
-      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" handleProjectHover={handleProjectHover}/>
-      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" handleProjectHover={handleProjectHover}/>
-      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" handleProjectHover={handleProjectHover}/>
-      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" handleProjectHover={handleProjectHover}/>
-      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" handleProjectHover={handleProjectHover}/>
-      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" handleProjectHover={handleProjectHover}/>
+      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
+      <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" />
     </section>
     <section className="section">
       <div className="container contact-wrapper">
