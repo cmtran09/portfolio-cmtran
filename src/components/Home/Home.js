@@ -89,9 +89,11 @@ export default function Home() {
         scrollTrigger: {
           trigger: value,
           start: "top center",
+          onEnter: () => value.classList.remove('hidden'), 
           markers: true,
           // scrub: true
         },
+        display: 'hidden',
         y: "-5vw",
         stagger: 0.1,
         opacity: 0,
@@ -154,14 +156,14 @@ export default function Home() {
       </section>
       <SkillIcons skillIconsRef={skillIcons} />
       <section className="section" ref={elem => projects = elem}>
-        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
-        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
-        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
-        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
-        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
-        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
-        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
-        <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
+        <ProjectLink projectName="Swell1" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
+        <ProjectLink projectName="Swell2" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
+        <ProjectLink projectName="Swell3" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
+        <ProjectLink projectName="Swell4" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
+        <ProjectLink projectName="Swell5" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
+        <ProjectLink projectName="Swell6" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
+        <ProjectLink projectName="Swell7" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
+        <ProjectLink projectName="Swell8" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
       </section>
       <section className="section">
         <div className="container contact-wrapper">
