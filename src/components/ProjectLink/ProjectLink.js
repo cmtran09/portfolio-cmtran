@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { TimelineLite, Power3 } from 'gsap'
 
-export default function ProjectLink({ projectName, projectLink, projectRepo }) {
+export default function ProjectLink({ projectName, projectLink, projectRepo, skill }) {
   let githubLink = useRef(null)
   let deployedLink = useRef(null)
   const tl = new TimelineLite()
@@ -10,7 +10,7 @@ export default function ProjectLink({ projectName, projectLink, projectRepo }) {
     tl.from(deployedLink, { y: 10, opacity: 0, ease: Power3.easeOut })
       .from(githubLink, { y: 10, opacity: 0, ease: Power3.easeOut }, 0.3)
     tl.reversed(true)
-  }, [])
+  }, [skill])
 
   const projectAnimation = () => {
     tl.reversed(!tl.reversed())
