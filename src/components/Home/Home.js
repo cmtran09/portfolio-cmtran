@@ -152,14 +152,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* <section className="section skills-section" ref={elem => skillSection = elem}> */}
-        {/* <div className="container skills-wrapper"> */}
-          <SkillIcons skillIconsRef={skillIcons}
-            // handleIconMouseLeave={handleIconMouseLeave} 
-            // handleIconMouseEnter={handleIconMouseEnter}
-          />
-        {/* </div> */}
-      {/* </section > */}
+      <SkillIcons skillIconsRef={skillIcons} />
       <section className="section" ref={elem => projects = elem}>
         <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" skill={skill} />
         <ProjectLink projectName="Swell" projectLink="swell.com" projectRepo="git.swell" skill={skill} />

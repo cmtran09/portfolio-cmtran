@@ -81,30 +81,30 @@ div.skill-namer{
   width: 100vh;
   bottom: 0px;
   right: 0px;
-  // opacity: 0;
+  opacity: 0;
   transform: rotate(-90deg) translate(100%, 0);
   transform-origin: right bottom;
 }
 
-// .skills-animation{
-//   animation: skillAnimation 2.5s;
-// }
+.skills-animation{
+  animation: skillAnimation 2.5s;
+}
 
-// @keyframes skillAnimation {
-//   0% {
-//     opacity: 0;  
-//   }
-//   50%{
-//     opacity: 1;  
-//   }
-//   100%{
-//     opacity: 0;  
-//   }
-// }
+@keyframes skillAnimation {
+  0% {
+    opacity: 0;  
+  }
+  50%{
+    opacity: 1;  
+  }
+  100%{
+    opacity: 0;  
+  }
+}
 
-// span.icon{
-//   // overflow: hidden;
-// }
+span.icon{
+  // overflow: hidden;
+}
 
 
 p.skill-text{
