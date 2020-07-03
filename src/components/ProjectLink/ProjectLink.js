@@ -35,9 +35,9 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
       <div ref={elem => deployedLink = elem} className="deployed-site">deployed</div>
       <div ref={elem => githubLink = elem} className="github-repo">github</div>
       <div ref={elem => demoPlay = elem} onClick={() => setDemoIsActive(!demoIsActive)} className="github-repo">demo</div>
-      {demoIsActive && <ReactPlayer url={projectVideo} />}
+      {demoIsActive && <ReactPlayer url={projectVideo} playing/>}
       {/* <img src={projectImage} alt=""/> */}
-      <div ref={elem => videoContainer = elem} className="video-container"
+      {/* <div ref={elem => videoContainer = elem} className="video-container"
         style={{
           position: 'absolute',
           // top: '0px'
@@ -49,7 +49,7 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
         <video autoPlay loop>
           <source src={projectVideo} type="video/mp4" />
         </video>
-      </div>
+      </div> */}
     </div>
   )
 }
