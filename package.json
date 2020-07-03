@@ -20,6 +20,7 @@
     "gsap": "^3.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-player": "^2.4.0",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
