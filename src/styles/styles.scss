@@ -146,7 +146,17 @@ p.project-name{
   font-family: 'Lato', sans-serif;
   // font-size: 10vw;
   font-size: 5vw;
-  color: black
+  color: black;
+}
+
+.deployed-site {
+  opacity: 1;
+}
+.github-repo {
+  opacity: 1;
+}
+.demo-link {
+  opacity: 1;
 }
 
 h1.contact{
