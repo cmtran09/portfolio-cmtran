@@ -3,7 +3,7 @@ import { TimelineLite, Power3 } from 'gsap'
 import ReactPlayer from 'react-player'
 
 export default function ProjectLink({ projectName, projectLink, projectRepo, projectImage, projectVideo }) {
-  const [demoIsActive, setDemoIsActive] = useState(false)
+  const [demoIsActive, setDemoIsActive] = useState(true)
   let githubLink = useRef(null)
   let deployedLink = useRef(null)
   let demoPlay = useRef(null)
@@ -52,6 +52,8 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
         className="demo-link">demo
       </div>
       {demoIsActive &&
+
+
         <div
           className="demo-wrapper"
           onClick={() => {
@@ -67,15 +69,26 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
             zIndex: "9",
             background: "rgba(0, 0, 0, 0.5)"
           }}>
-          <div style={{
-            position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)",
-            top: "30vh"
+          <div className="player-wrapper" style={{
+            position: "relative",
+            // left: "50%",
+            // transform: "translateX(-50%)",
+            // top: "30vh"
           }}>
-            <ReactPlayer url={projectVideo} playing loop />
+            <div className="player-inner" style={{
+              position: "absolute",
+              // left: "-50%",
+              // top: "50%",
+              // width: "40px",
+              // transform: "translateX(-50%)",
+              // top: "30vh"
+            }}>
+              <ReactPlayer className='react-player' url={projectVideo} playing loop />
+            </div>
           </div>
         </div>
+
+
       }
       {/* <img src={projectImage} alt=""/> */}
       {/* <div ref={elem => videoContainer = elem} className="video-container"

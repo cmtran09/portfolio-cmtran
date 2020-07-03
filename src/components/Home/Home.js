@@ -157,13 +157,13 @@ export default function Home() {
       <SkillIcons skillIconsRef={skillIcons} />
       <section className="section" ref={elem => projects = elem}>
         <ProjectLink projectName="Swell1" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/system-monitor.mp4' projectImage='../../images/tetris.png'/>
-        <ProjectLink projectName="Swell2" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/text-translate.mp4' projectImage='../../images/tetris.png'/>
+        {/* <ProjectLink projectName="Swell2" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/text-translate.mp4' projectImage='../../images/tetris.png'/>
         <ProjectLink projectName="Swell3" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/nba.mp4' projectImage='../../images/tetris.png'/>
         <ProjectLink projectName="Swell4" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/chatroom.mp4' projectImage=''/>
         <ProjectLink projectName="Swell5" projectLink="swell.com" projectRepo="git.swell" projectImage=''/>
         <ProjectLink projectName="Swell6" projectLink="swell.com" projectRepo="git.swell" projectImage=''/>
         <ProjectLink projectName="Swell7" projectLink="swell.com" projectRepo="git.swell" projectImage=''/>
-        <ProjectLink projectName="Swell8" projectLink="swell.com" projectRepo="git.swell" projectImage=''/>
+        <ProjectLink projectName="Swell8" projectLink="swell.com" projectRepo="git.swell" projectImage=''/> */}
       </section>
       <section className="section">
         <div className="container contact-wrapper">
