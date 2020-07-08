@@ -27,7 +27,7 @@ module.exports = {
 		contentBase: path.resolve('src'),
 		hot: true,
 		open: true,
-		port: 8002,
+		port: 8003,
 		watchContentBase: true,
 		historyApiFallback: true
 	},

@@ -3,7 +3,7 @@ import { TimelineLite, Power3 } from 'gsap'
 import ReactPlayer from 'react-player'
 
 export default function ProjectLink({ projectName, projectLink, projectRepo, projectImage, projectVideo }) {
-  const [demoIsActive, setDemoIsActive] = useState(true)
+  const [demoIsActive, setDemoIsActive] = useState(false)
   let githubLink = useRef(null)
   let deployedLink = useRef(null)
   let demoPlay = useRef(null)
@@ -69,8 +69,18 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
             zIndex: "9",
             background: "rgba(0, 0, 0, 0.5)"
           }}>
+          <span className="icon is-large">
+            <i className="fas fa-2x fa-times-circle"></i>
+          </span>
           <div className="player-wrapper" style={{
-            position: "relative",
+            display: "flex", // make us of Flexbox
+            // alignItems: "center", // does vertically center the desired content
+            // top: "50%",
+            // justifyContent: "center",
+            // flexDirection: "column",
+            // justifyContent: "center", // horizontally centers single line items
+            // textAlign: "center", // optional, but helps horizontally center text that breaks into multiple lines
+            // position: "relative",
             // left: "50%",
             // transform: "translateX(-50%)",
             // top: "30vh"
@@ -83,7 +93,8 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
               // transform: "translateX(-50%)",
               // top: "30vh"
             }}>
-              <ReactPlayer className='react-player' url={projectVideo} playing loop />
+
+              <ReactPlayer width='100%' height='100%' className='react-player' url={projectVideo} playing loop />
             </div>
           </div>
         </div>
