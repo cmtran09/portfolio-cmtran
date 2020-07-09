@@ -97,7 +97,9 @@ export default function Home() {
                 </div>
                 <div className="link-container">
                   <a href=""></a>
-                  <li>LinkedIn</li>
+                  <li>
+                    <a href="https://uk.linkedin.com/in/cmtran09">LinkedIn</a>
+                  </li>
                 </div>
                 <div className="link-container">
                   <li>
