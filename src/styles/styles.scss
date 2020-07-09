@@ -174,10 +174,13 @@ div.container.contact-wrapper{
 }
 
 .player-wrapper {
-  position: relative;
-  align-items: center;
-  margin-top: 45vh;
-  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  // align-items: center;
+  // margin-top: 45vh;
+  // justify-content: center;
 }
 
 // .react-player {

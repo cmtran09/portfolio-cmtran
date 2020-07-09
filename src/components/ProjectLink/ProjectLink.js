@@ -73,20 +73,20 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
             <i className="fas fa-2x fa-times-circle"></i>
           </span>
           <div className="player-wrapper" style={{
-            display: "flex", // make us of Flexbox
+            // display: "flex", // make us of Flexbox
             // alignItems: "center", // does vertically center the desired content
             // top: "50%",
             // justifyContent: "center",
             // flexDirection: "column",
-            // justifyContent: "center", // horizontally centers single line items
-            // textAlign: "center", // optional, but helps horizontally center text that breaks into multiple lines
+            // justifyContent:nal, but  "center", // horizontally centers single line items
+            // textAlign: "center", // optiohelps horizontally center text that breaks into multiple lines
             // position: "relative",
             // left: "50%",
             // transform: "translateX(-50%)",
             // top: "30vh"
           }}>
             <div className="player-inner" style={{
-              position: "absolute",
+              // position: "absolute",
               // left: "-50%",
               // top: "50%",
               // width: "40px",
