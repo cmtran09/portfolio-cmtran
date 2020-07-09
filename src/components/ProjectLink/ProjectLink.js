@@ -2,16 +2,14 @@ import React, { useRef, useEffect, useState, useMemo } from 'react'
 import { TimelineLite, Power3 } from 'gsap'
 import ReactPlayer from 'react-player'
 
-export default function ProjectLink({ projectName, projectLink, projectRepo, projectImage, projectVideo }) {
+export default function ProjectLink({ projectName, projectLink, projectRepo, projectImage, projectVideo, dateComplete }) {
   const [demoIsActive, setDemoIsActive] = useState(false)
   let githubLink = useRef(null)
   let deployedLink = useRef(null)
   let demoPlay = useRef(null)
   let projectContainer = useRef(null)
-  let videoContainer = useRef(null)
 
   const tl = useMemo(() => new TimelineLite(), [])
-
 
   useEffect(() => {
     tl
@@ -22,26 +20,25 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
     // console.log(projectContainer, 'projectContainer inside'
   }, [])
 
-  console.log(projectContainer, 'projectContainer')
-
   const projectAnimation = () => {
-    if (projectContainer.classList.contains('hidden') !== true) {
-      tl.reversed(!tl.reversed())
-    } return
+    if (projectContainer.classList.contains('hidden') !== true) return tl.reversed(!tl.reversed())
   }
 
   const handleMouseLeave = () => {
-    if (!demoIsActive) return tl.reversed(!tl.reversed())
-    // return tl.paused()
+    if (!demoIsActive && projectContainer.classList.contains('hidden') !== true) return tl.reversed(!tl.reversed())
   }
 
   return (
     <div style={{
       position: 'relative'
     }} ref={elem => projectContainer = elem} className="container project-wrapper hidden" onMouseEnter={() => projectAnimation()} onMouseLeave={() => handleMouseLeave()}>
-      <p className="project-name">{projectName}</p>
-      <div ref={elem => deployedLink = elem} className="deployed-site">deployed</div>
-      <div ref={elem => githubLink = elem} className="github-repo">github</div>
+      <p className="project-name">{projectName} <sup>{dateComplete}</sup></p>
+      <div ref={elem => deployedLink = elem} className="deployed-site">
+        {projectLink ? <a href={projectLink} target="_blank">Deployed Project</a> : ""}
+      </div>
+      <div ref={elem => githubLink = elem} className="github-repo">
+        {projectRepo ? <a href={projectRepo} target="_blank">GitHub Repo</a> : ""}
+      </div>
       <div
         ref={elem => demoPlay = elem}
         onClick={() => {
@@ -49,11 +46,9 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
           !demoIsActive ? tl.pause() : tl.resume()
           // tl.reversed(false)
         }}
-        className="demo-link">demo
+        className="demo-link" style={{ cursor: "pointer" }}>Video Demo
       </div>
       {demoIsActive &&
-
-
         <div
           className="demo-wrapper"
           onClick={() => {
@@ -72,49 +67,13 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
           <span className="icon is-large">
             <i className="fas fa-2x fa-times-circle"></i>
           </span>
-          <div className="player-wrapper" style={{
-            // display: "flex", // make us of Flexbox
-            // alignItems: "center", // does vertically center the desired content
-            // top: "50%",
-            // justifyContent: "center",
-            // flexDirection: "column",
-            // justifyContent:nal, but  "center", // horizontally centers single line items
-            // textAlign: "center", // optiohelps horizontally center text that breaks into multiple lines
-            // position: "relative",
-            // left: "50%",
-            // transform: "translateX(-50%)",
-            // top: "30vh"
-          }}>
-            <div className="player-inner" style={{
-              // position: "absolute",
-              // left: "-50%",
-              // top: "50%",
-              // width: "40px",
-              // transform: "translateX(-50%)",
-              // top: "30vh"
-            }}>
-
-              <ReactPlayer width='100%' height='100%' className='react-player' url={projectVideo} playing loop />
+          <div className="player-wrapper" style={{}}>
+            <div className="player-inner" style={{}}>
+              <ReactPlayer width='120%' height='120%' className='react-player' url={projectVideo} playing loop />
             </div>
           </div>
         </div>
-
-
       }
-      {/* <img src={projectImage} alt=""/> */}
-      {/* <div ref={elem => videoContainer = elem} className="video-container"
-        style={{
-          position: 'absolute',
-          // top: '0px'
-          top: '0px',
-          right: '-650px',
-          minHeight: '100px',
-          zIndex: -1,
-        }}>
-        <video autoPlay loop>
-          <source src={projectVideo} type="video/mp4" />
-        </video>
-      </div> */}
     </div >
   )
 }

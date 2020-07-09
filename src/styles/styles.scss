@@ -67,6 +67,9 @@ ul.links{
   font-family: 'Lato', sans-serif;
   font-size: 2vw;
   // border:2px solid black;
+  a{
+    color: inherit;
+  }
 }
 
 p.about{
@@ -138,7 +141,7 @@ div.container.project-wrapper{
 div.container.project-wrapper:last-child{
   padding-bottom: 200px;
   padding-top: 4vw;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid black;
 }
 
 p.project-name{
@@ -147,13 +150,22 @@ p.project-name{
   // font-size: 10vw;
   font-size: 5vw;
   color: black;
+  sup{
+    font-size: 2vw;
+  }
 }
 
 .deployed-site {
   opacity: 1;
+  a{
+    color: black
+  }
 }
 .github-repo {
   opacity: 1;
+  a{
+    color: inherit
+  }
 }
 .demo-link {
   opacity: 1;

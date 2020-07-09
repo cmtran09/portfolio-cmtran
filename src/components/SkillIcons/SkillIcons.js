@@ -30,7 +30,7 @@ export default function SkillIcons() {
       scrollTrigger: {
         trigger: skillSection,
         start: "top center",
-        markers: true,
+        // markers: true,
         // scrub: true
       },
       x: 80,
@@ -38,18 +38,6 @@ export default function SkillIcons() {
       opacity: 0,
     }, 0.1);
   }, [])
-
-  // useEffect(() => {
-  //   //Skill Namer
-  //   console.log(skillLabel, '++')
-  //   tl.from(skillLabel, { y: 10, opacity: 0, ease: Power3.easeOut })
-  //     .from(skillLabel, { x: 10, opacity: 0, ease: Power3.easeOut }, 0.3)
-  //   tl.reversed(true)
-  // }, [activeSkill])
-
-  // const skillAnimation = () => {
-  //   tl.reversed(!tl.reversed())
-  // }
 
   return (
     <section className="section skills-section" ref={elem => skillSection = elem}>

@@ -9,7 +9,6 @@ import 'bulma/css/bulma.css'
 
 import ProjectLink from '../ProjectLink/ProjectLink'
 import SkillIcons from '../SkillIcons/SkillIcons'
-import SkillNamer from '../SkillNamer/SkillNamer'
 
 export default function Home() {
   const [skill, setSkill] = useState('')
@@ -18,13 +17,9 @@ export default function Home() {
   let content = useRef(null)
 
   let skillIcons = useRef(null)
-  // let skillSection = useRef(null)
-
-  let skillLabel = useRef(null)
 
   let projects = useRef(null)
   let tl = new TimelineLite()
-  let skillNamerTl = new TimelineLite()
 
   useEffect(() => {
     //Name var
@@ -49,48 +44,16 @@ export default function Home() {
       delay: 0.3
     }, 0.3)
 
-    console.log(skillIcons.current, 'parent skillsIcons')
-    // skills js var
-    // const skillsArr = skillIcons.current.children
-    // console.log('skillsArr', skillsArr)
-    // console.log('arr', skillIcons.children)
-
-    //SKill animation
-    // TweenMax.from(skillsArr, 0.07, {
-    //   scrollTrigger: {
-    //     trigger: skillSection,
-    //     start: "top center",
-    //     markers: true,
-    //     // scrub: true
-    //   },
-    //   x: 80,
-    //   stagger: 0.1,
-    //   opacity: 0,
-    // }, 0.1);
-
     //Projects Var
     const projectsArr = projects.children
-    console.log(projectsArr)
-    console.log(typeof (projectsArr))
-    // TweenMax.from(projectsArr[0], 0.07, {
-    //   scrollTrigger: {
-    //     trigger: projectsArr[0],
-    //     start: "top center",
-    //     markers: true,
-    //     // scrub: true
-    //   },
-    //   x: 80,
-    //   stagger: 0.1,
-    //   opacity: 0,
-    // }, 0.1);
 
     for (const [key, value] of Object.entries(projectsArr)) {
       TweenMax.from(value.children[0], 0.3, {
         scrollTrigger: {
           trigger: value,
           start: "top center",
-          onEnter: () => value.classList.remove('hidden'), 
-          markers: true,
+          onEnter: () => value.classList.remove('hidden'),
+          // markers: true,
           // scrub: true
         },
         display: 'hidden',
@@ -102,21 +65,8 @@ export default function Home() {
     }
   }, [])
 
-  // const handleIconMouseEnter = (e) => {
-  //   setSkill(e.target.attributes.getNamedItem("skillname").value)
-  //   // skillLabel.classList.add('skills-animation')
-  // }
-
-  // const handleIconMouseLeave = (e) => {
-  //   // skillLabel.classList.remove('skills-animation')
-  // }
-
   return (
     <main ref={elem => main = elem} >
-      {/* <SkillNamer skill={skill} skillLabelRef={skillLabel} /> */}
-      {/* <div className="skill-namer" ref={elem => skillLabel = elem}>
-      <p className="skill-text">{skill ? skill : ""}</p>
-    </div> */}
       <section className="section">
         <div className="container main-wrapper" ref={elem => content = elem}>
           <div className="container header-wrapper">
@@ -135,19 +85,24 @@ export default function Home() {
             <div className="column is-three-quarters">
               <p className="about">
                 I'm a Software Engineer from London, recently graduated at General Assembly.
-                Here are some pieces of my work. Hope you enjoy having a look.
+                Here are some pieces of my work and the tech I've come across so far. Hope you enjoy having a look.
               </p>
             </div>
             <div className="column">
               <ul className="links">
                 <div className="link-container">
-                  <li>GitHub</li>
+                  <li>
+                    <a href="https://github.com/cmtran09">GitHub</a>
+                  </li>
                 </div>
                 <div className="link-container">
+                  <a href=""></a>
                   <li>LinkedIn</li>
                 </div>
                 <div className="link-container">
-                  <li>CodeWars</li>
+                  <li>
+                    <a href="https://www.codewars.com/users/cmtran09">CodeWars</a>
+                  </li>
                 </div>
               </ul>
             </div>
@@ -156,15 +111,14 @@ export default function Home() {
       </section>
       <SkillIcons skillIconsRef={skillIcons} />
       <section className="section" ref={elem => projects = elem}>
-        <ProjectLink projectName="Swell1" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/system-monitor.mp4' projectImage='../../images/tetris.png'/>
-        <ProjectLink projectName="Swell2" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/text-translate.mp4' projectImage='../../images/tetris.png'/>
-        <ProjectLink projectName="Swell3" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/nba.mp4' projectImage='../../images/tetris.png'/>
-        <ProjectLink projectName="Swell4" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/chatroom.mp4' projectImage=''/>
-        <ProjectLink projectName="Swell5" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/tetris.mp4' projectImage=''/>
-        <ProjectLink projectName="Swell6" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/scribble.mp4' projectImage=''/>
-        <ProjectLink projectName="Swell7" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/potter-pair.mp4' projectImage=''/>
-        <ProjectLink projectName="Swell7" projectLink="swell.com" projectRepo="git.swell" projectVideo='../../video/swell.mp4' projectImage=''/>
-        <ProjectLink projectName="Swell8" projectLink="swell.com" projectRepo="git.swell" projectImage=''/>
+        <ProjectLink projectName="System Monitor" dateComplete="2020" projectLink="" projectRepo="https://bit.ly/2Yfrk1e" projectVideo='../../video/system-monitor.mp4' projectImage='../../images/tetris.png' />
+        <ProjectLink projectName="Socket.io Chatroom" dateComplete="2020" projectLink="https://bit.ly/30xceqU" projectRepo="https://bit.ly/3dTy1wH" projectVideo='../../video/chatroom.mp4' projectImage='' />
+        <ProjectLink projectName="Scribble" dateComplete="2020" projectLink="https://bit.ly/2XOcrnG" projectRepo="https://bit.ly/2YfppK4" projectVideo='../../video/scribble.mp4' projectImage='' />
+        <ProjectLink projectName="Swell" dateComplete="2019" projectLink="https://bit.ly/37hC43v" projectRepo="https://bit.ly/2XNvD58" projectVideo='../../video/swell.mp4' projectImage='' />
+        <ProjectLink projectName="Text Translate" dateComplete="2019" projectLink="https://project-z-text-translate.herokuapp.com/" projectRepo="https://github.com/cmtran09/project-z-text-translate" projectVideo='../../video/text-translate.mp4' projectImage='../../images/tetris.png' />
+        <ProjectLink projectName="NBA Comparison" dateComplete="2019" projectLink="https://bit.ly/2MKaMJp" projectRepo="https://bit.ly/2AyMtfk" projectVideo='../../video/nba.mp4' projectImage='../../images/tetris.png' />
+        <ProjectLink projectName="PotterAPI Pair" dateComplete="2019" projectLink="https://bit.ly/2XPOQDa" projectRepo="https://bit.ly/3cKaYTK" projectVideo='../../video/potter-pair.mp4' projectImage='' />
+        <ProjectLink projectName="Vanilla JS Tetris" dateComplete="2019" projectLink="https://bit.ly/3h9tCrD" projectRepo="https://bit.ly/2YjYJYY" projectVideo='../../video/tetris.mp4' projectImage='' />
       </section>
       <section className="section">
         <div className="container contact-wrapper">
