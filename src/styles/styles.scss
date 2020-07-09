@@ -52,7 +52,6 @@ div.container.header-wrapper{
   display: hidden;
 }
 
-
 div.columns.main-column{
   margin-left: 0;
   margin-right: 0;
@@ -69,13 +68,39 @@ ul.links{
   // border:2px solid black;
   a{
     color: inherit;
+    position: relative;
+    .underline {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: red;
+    }
+
   }
 }
+
+    // span {
+    //   display: block;
+    //   position: absolute;
+    //   bottom: 0;
+    //   left: 0;
+    //   width: 0;
+    //   height: calc(1px + 0.6vw);
+    //   background-color: red;
+    // }
 
 p.about{
   font-family: 'Lato', sans-serif;
   font-size: 2vw;
   padding-right: 40px;
+}
+.about-line-container{
+  overflow: hidden;
+  height: 3vw;
+  // z-index: 3;
 }
 
 ul.skills{

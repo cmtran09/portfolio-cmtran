@@ -14,29 +14,82 @@ export default function Home() {
   const [skill, setSkill] = useState('')
   let main = useRef(null)
   let name = useRef(null)
-  let content = useRef(null)
+  let aboutContent = useRef(null)
+  let myLinks = useRef(null)
 
   let skillIcons = useRef(null)
 
   let projects = useRef(null)
   let tl = new TimelineLite()
 
+  let linkTl = new TimelineLite({paused:true})
+
+  // Mouseenter function
+  const enterAnimation = () => {
+    linkTl.tweenFromTo(0, "midway")
+  }
+
+  // Mouseleave function
+  const leaveAnimation = () => {
+    linkTl.play()
+  }
+
   useEffect(() => {
     //Name var
     const myName = name.firstElementChild
     console.log('myName', myName)
     //Link vars
-    const firstLink = content.children[2].children[1].children[0].children[0]
+    const firstLink = myLinks.children[0]
     const secondLink = firstLink.nextSibling
     const thirdLink = secondLink.nextSibling
+    //About Line Vars
+    const firstAboutLine = aboutContent.children[0]
+    const secondAboutLine = firstAboutLine.nextSibling
+    const thirdAboutLine = secondAboutLine.nextSibling
+    const fourthAboutLine = thirdAboutLine.nextSibling
+    const fifthAboutLine = fourthAboutLine.nextSibling
 
+
+
+    myLinks.childNodes.forEach((link) => {
+      let underline = link.children[0].children[0].children[0]
+      // link.tl = gsap.timeline({ paused: true })
+      console.log(underline)
+
+      linkTl.fromTo(underline, {
+        width: "0%",
+        left: "0%",
+      }, {
+        width: "100%",
+        duration: 1,
+      })
+
+      linkTl.add("midway");
+
+      linkTl.fromTo(underline, {
+        width: "100%",
+        left: "0%",
+      }, {
+        width: "0%",
+        left: "100%",
+        duration: 1,
+        immediateRender: false
+      })
+    })
 
     //Remove Initial Flash
     TweenMax.to(main, 0, { css: { visibility: 'visible' } })
     // Name animation
     tl
-      .from(myName, 1.2, { y: 800, ease: Power3.easeOut })
+      .from(myName, 1.2, { y: 800, ease: Power3.easeOut }, 0.2)
       .from(myName, 2, { opacity: 0, ease: Sine.easeOut }, 0)
+      // About animation
+      .from(firstAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
+      .from(secondAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
+      .from(thirdAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
+      .from(fourthAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
+      .from(fifthAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
+    // About animation
     // Links animation
     tl.staggerFrom([firstLink.children, secondLink.children, thirdLink.children], 1, {
       y: 33,
@@ -46,7 +99,6 @@ export default function Home() {
 
     //Projects Var
     const projectsArr = projects.children
-
     for (const [key, value] of Object.entries(projectsArr)) {
       TweenMax.from(value.children[0], 0.3, {
         scrollTrigger: {
@@ -61,14 +113,14 @@ export default function Home() {
         stagger: 0.1,
         opacity: 0,
       }, 0.1);
-      console.log(value.children, 'value object')
+      // console.log(value.children, 'value object')
     }
   }, [])
 
   return (
     <main ref={elem => main = elem} >
       <section className="section">
-        <div className="container main-wrapper" ref={elem => content = elem}>
+        <div className="container main-wrapper" >
           <div className="container header-wrapper">
             <div className="level header is-mobile">
               <p className="level-left">Portfolio</p>
@@ -83,29 +135,21 @@ export default function Home() {
           </div>
           <div className="columns main-column is-mobile hero-content">
             <div className="column is-three-quarters">
-              <p className="about">
-                I'm a Software Engineer from London, recently graduated at General Assembly.
-                Here are some pieces of my work and the tech I've come across so far. Hope you enjoy having a look.
-              </p>
+              <div ref={elem => aboutContent = elem}>
+                <div className="about-line-container"><p className="about">I'm a Software Engineer from London,</p></div>
+                <div className="about-line-container"><p className="about">recently graduated at General Assembly.</p></div>
+                <div className="about-line-container"><p className="about">Here are some pieces of my work </p></div>
+                <div className="about-line-container"><p className="about">and the tech I've come across so far.</p></div>
+                <div className="about-line-container"><p className="about">Hope you enjoy having a look.</p></div>
+                {/* I'm a Software Engineer from London, recently graduated at General Assembly. */}
+                {/* Here are some pieces of my work and the tech I've come across so far. Hope you enjoy having a look. */}
+              </div>
             </div>
             <div className="column">
-              <ul className="links">
-                <div className="link-container">
-                  <li>
-                    <a href="https://github.com/cmtran09">GitHub</a>
-                  </li>
-                </div>
-                <div className="link-container">
-                  <a href=""></a>
-                  <li>
-                    <a href="https://uk.linkedin.com/in/cmtran09">LinkedIn</a>
-                  </li>
-                </div>
-                <div className="link-container">
-                  <li>
-                    <a href="https://www.codewars.com/users/cmtran09">CodeWars</a>
-                  </li>
-                </div>
+              <ul className="links" ref={elem => myLinks = elem}>
+                <div className="link-container"><li><a href="https://github.com/cmtran09">GitHub<span onMouseEnter={e => enterAnimation()} onMouseLeave={e => leaveAnimation()} className="underline"></span></a></li></div>
+                <div className="link-container"><li><a href="https://uk.linkedin.com/in/cmtran09">LinkedIn<span onMouseEnter={e => enterAnimation()} onMouseLeave={e => leaveAnimation()} className="underline"></span></a></li></div>
+                <div className="link-container"><li><a href="https://www.codewars.com/users/cmtran09">CodeWars<span onMouseEnter={e => enterAnimation()} onMouseLeave={e => leaveAnimation()} className="underline"></span></a></li></div>
               </ul>
             </div>
           </div>
