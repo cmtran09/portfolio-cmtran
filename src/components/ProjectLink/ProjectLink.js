@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState, useMemo } from 'react'
 import { TimelineLite, Power3 } from 'gsap'
 import ReactPlayer from 'react-player'
 
+import Underline from '../Underline/Underline'
+
 export default function ProjectLink({ projectName, projectLink, projectRepo, projectImage, projectVideo, dateComplete }) {
   const [demoIsActive, setDemoIsActive] = useState(false)
   let githubLink = useRef(null)
@@ -74,6 +76,7 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
           </div>
         </div>
       }
+      <Underline triggerElement="10%" viewport="95%"/>
     </div >
   )
 }

@@ -5,9 +5,36 @@
   box-sizing: border-box;
 }
 
-.header-wrapper{
-  // border-bottom: 2px solid black;
-  padding-bottom: 15px;
+main{
+  visibility: hidden;
+  margin-top: 60px;
+  margin-left: 7%;
+  width: 65%;
+  .header-wrapper{
+    position: "relative";
+    // border-bottom: 2px solid black;
+    // padding-bottom: 15px;
+    .header-underline{
+      display: block;
+      position: absolute;
+      // marginTop: 10;
+      bottom: 0;
+      left: 0;
+      width: 150%;
+      height: 3px;
+      background-color: black;
+    }
+  }
+    .header-underline{
+      display: block;
+      position: absolute;
+      // marginTop: 10;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: black;
+    }
 }
 
 .header-container{
@@ -15,16 +42,16 @@
   overflow: hidden;
 }
 
+// div.underline-container{
+//   border: 2px solid green;
+// //   width: 100%;
+// //   height: 30px;
+// //   // overflow: hidden; 
+// }
+
 div.container.main-wrapper{
   padding-bottom: 190px;
-  border-bottom: 2px solid black;
-}
-
-main{
-  visibility: hidden;
-  margin-top: 60px;
-  margin-left: 7%;
-  width: 65%;
+  // border-bottom: 2px solid black;
 }
 
 section.section{
@@ -87,16 +114,6 @@ ul.links{
   }
 }
 
-    // span {
-    //   display: block;
-    //   position: absolute;
-    //   bottom: 0;
-    //   left: 0;
-    //   width: 0;
-    //   height: calc(1px + 0.6vw);
-    //   background-color: red;
-    // }
-
 p.about{
   font-family: 'Lato', sans-serif;
   font-size: 2vw;
@@ -145,7 +162,6 @@ span.icon{
   // overflow: hidden;
 }
 
-
 p.skill-text{
   font-family: 'Lato', sans-serif;
   font-size: 9vw;
@@ -154,7 +170,7 @@ p.skill-text{
 
 .skills-wrapper {
   width: 100%;
-  border-bottom: 2px solid black;
+  // border-bottom: 2px solid black;
   padding-bottom: 48px;
 }
 
@@ -167,12 +183,12 @@ span.icon{
 div.container.project-wrapper{
   padding-bottom: 4vw;
   padding-top: 4vw;
-  border-bottom: 1px solid black;
+  // border-bottom: 1px solid black;
 }
 div.container.project-wrapper:last-child{
   padding-bottom: 200px;
   padding-top: 4vw;
-  border-bottom: 2px solid black;
+  // border-bottom: 2px solid black;
 }
 
 p.project-name{
@@ -211,7 +227,7 @@ h1.contact{
 }
 
 div.container.contact-wrapper{
-  border-bottom: 2px solid black;
+  // border-bottom: 2px solid black;
   padding-bottom: 40px;
   margin-bottom: 50px;
 }

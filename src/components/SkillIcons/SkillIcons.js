@@ -1,26 +1,22 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { TimelineLite, TweenMax, Power3 } from 'gsap'
+import { TweenMax } from 'gsap'
 
 import SkillNamer from '../SkillNamer/SkillNamer'
+import Underline from '../Underline/Underline'
 
 export default function SkillIcons() {
   const [activeSkill, setActiveSkill] = useState('')
   let skillIcons = useRef(null)
   let skillSection = useRef(null)
   let skillLabel = useRef(null)
-  // const tl = new TimelineLite()
-
 
   const handleIconMouseEnter = (e) => {
     setActiveSkill(e.target.attributes.getNamedItem("skillname").value)
-    // skillAnimation()
     skillLabel.classList.add('skills-animation')
   }
 
   const handleIconMouseLeave = (e) => {
     skillLabel.classList.remove('skills-animation')
-    // skillAnimation()
-    // console.log('leave')
   }
 
   useEffect(() => {
@@ -29,8 +25,8 @@ export default function SkillIcons() {
     TweenMax.from(skillsArr, 0.07, {
       scrollTrigger: {
         trigger: skillSection,
-        start: "top center",
-        // markers: true,
+        start: "top 60%",
+        markers: true,
         // scrub: true
       },
       x: 80,
@@ -86,6 +82,8 @@ export default function SkillIcons() {
           <span className="icon"><img onMouseLeave={() => handleIconMouseLeave()} onMouseEnter={e => handleIconMouseEnter(e)} skillname="Figma" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/figma.svg" /></span>
           <span className="icon"><img onMouseLeave={() => handleIconMouseLeave()} onMouseEnter={e => handleIconMouseEnter(e)} skillname="Greensock" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/greensock.svg" /></span>
         </ul>
+        {/* <span className="header-underline"></span> */}
+        <Underline triggerElement="10px" viewport="95%" />
       </div>
     </section >
   )

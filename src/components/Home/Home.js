@@ -9,7 +9,8 @@ import 'bulma/css/bulma.css'
 
 import ProjectLink from '../ProjectLink/ProjectLink'
 import SkillIcons from '../SkillIcons/SkillIcons'
-import MyLinks from '../MyLinks/MyLinks';
+import MyLinks from '../MyLinks/MyLinks'
+import Underline from '../Underline/Underline'
 
 export default function Home() {
   const [skill, setSkill] = useState('')
@@ -23,18 +24,6 @@ export default function Home() {
 
   let projects = useRef(null)
   let tl = new TimelineLite()
-
-  let linkTl = new TimelineLite({ paused: true })
-
-  // // Mouseenter function
-  // const enterAnimation = () => {
-  //   linkTl.tweenFromTo(0, "midway")
-  // }
-
-  // // Mouseleave function
-  // const leaveAnimation = () => {
-  //   linkTl.play()
-  // }
 
   useEffect(() => {
     //Header vars
@@ -55,63 +44,24 @@ export default function Home() {
     const fourthAboutLine = thirdAboutLine.nextSibling
     const fifthAboutLine = fourthAboutLine.nextSibling
 
-    let underlineGit = myLinks.children[0].children[0].children[0].children[0]
-    // link.tl = gsap.timeline({ paused: true })
-    // console.log(underlineGit, "underlineGit")
-
-    // linkTl.fromTo(underlineGit, { width: "0%", left: "0%", }, { width: "100%", duration: 1, })
-
-    // linkTl.add("midway");
-
-    // linkTl.fromTo(underlineGit, { width: "100%", left: "0%", }, { width: "0%", left: "100%", duration: 1, immediateRender: false })
-
-    // myLinks.childNodes.forEach((link) => {
-    //   let underline = link.children[0].children[0].children[0]
-    //   // link.tl = gsap.timeline({ paused: true })
-    //   console.log(underline)
-
-    //   linkTl.fromTo(underline, {
-    //     width: "0%",
-    //     left: "0%",
-    //   }, {
-    //     width: "100%",
-    //     duration: 1,
-    //   })
-
-    //   linkTl.add("midway");
-
-    //   linkTl.fromTo(underline, {
-    //     width: "100%",
-    //     left: "0%",
-    //   }, {
-    //     width: "0%",
-    //     left: "100%",
-    //     duration: 1,
-    //     immediateRender: false
-    //   })
-    // })
-
     //Remove Initial Flash
     TweenMax.to(main, 0, { css: { visibility: 'visible' } })
     // Name animation
     tl
-      .from([header1, header2, header3], 0.8, { y: 33, ease: Power3.easeOut }, 0)
+      .from([header1, header2, header3], 0.8, { y: "5vw", ease: Power3.easeOut }, 0)
       .from(headerUnderline, 3, { width: 0, ease: Power3.easeOut }, 0)
 
       .from(myName, 2, { opacity: 0, ease: Sine.easeOut }, 0.1)
       .from(myName, 1.2, { y: 800, ease: Power3.easeOut }, 0.2)
-      // .from(header1, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
-      // .from(header2, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
-      // .from(header3, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
       // About animation
-      .from(firstAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.9)
-      .from(secondAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.9)
-      .from(thirdAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.9)
-      .from(fourthAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.9)
-      .from(fifthAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.9)
+      .from(firstAboutLine.children, 0.8, { y: "5vw", ease: Power3.easeOut }, 0.9)
+      .from(secondAboutLine.children, 0.8, { y: "5vw", ease: Power3.easeOut }, 0.9)
+      .from(thirdAboutLine.children, 0.8, { y: "5vw", ease: Power3.easeOut }, 0.9)
+      .from(fourthAboutLine.children, 0.8, { y: "5vw", ease: Power3.easeOut }, 0.9)
+      .from(fifthAboutLine.children, 0.8, { y: "5vw", ease: Power3.easeOut }, 0.9)
     // Links animation
     tl.staggerFrom([firstLink.children, secondLink.children, thirdLink.children], 0.9, {
-      y: 33,
+      y: "5vw",
       ease: Power3.easeOut,
       delay: 0.3
     }, 0.3)
@@ -122,7 +72,7 @@ export default function Home() {
       TweenMax.from(value.children[0], 0.3, {
         scrollTrigger: {
           trigger: value,
-          start: "top center",
+          start: "top 80%",
           onEnter: () => value.classList.remove('hidden'),
           // markers: true,
           // scrub: true
@@ -134,27 +84,31 @@ export default function Home() {
       }, 0.1);
       // console.log(value.children, 'value object')
     }
+
+    //Underline var
+    const mainEndUnderline = main.children[0].children[0].lastChild
+    console.log(mainEndUnderline)
+    TweenMax.from(mainEndUnderline, 3, {
+      scrollTrigger: {
+        trigger: thirdAboutLine,
+        start: "top center",
+        markers: true,
+        // scrub: true
+      },
+      width: 0,
+    }, 0.1);
   }, [])
 
   return (
     <main ref={elem => main = elem} >
       <section className="section">
         <div className="container main-wrapper" >
-          <div style={{ position: "relative" }} className="container header-wrapper" ref={elem => header = elem}>
+          <div className="container header-wrapper" ref={elem => header = elem}>
             <div className="level header is-mobile">
               <div className="header-container"><p className="level-left">Portfolio</p></div>
               <div className="header-container"><p className="level-item">2020</p></div>
               <div className="header-container"><p className="level-right">London</p></div>
-              <span style={{
-                display: "block",
-                position: "absolute",
-                marginTop: "10",
-                bottom: "0",
-                left: "0",
-                width: "100%",
-                height: "3px",
-                backgroundColor: "black"
-              }}></span>
+              <span className="header-underline"></span>
             </div>
           </div>
           <div className="name-container" ref={elem => name = elem}>
@@ -182,6 +136,8 @@ export default function Home() {
               </ul>
             </div>
           </div>
+          <span className="header-underline"></span>
+          {/* <Underline /> */}
         </div>
       </section>
       <SkillIcons skillIconsRef={skillIcons} />
@@ -201,6 +157,7 @@ export default function Home() {
           <p className="about">
             I am currently looking for a Junior Software Engineer/Front-End/Fullstack role in London. Feel free to drop me a LinkedIn message or email at cuomantran@gmail.com.
           </p>
+          <Underline triggerElement="10px" viewport="100%"/>
         </div>
       </section>
     </main >
