@@ -9,6 +9,7 @@ import 'bulma/css/bulma.css'
 
 import ProjectLink from '../ProjectLink/ProjectLink'
 import SkillIcons from '../SkillIcons/SkillIcons'
+import MyLinks from '../MyLinks/MyLinks';
 
 export default function Home() {
   const [skill, setSkill] = useState('')
@@ -25,17 +26,15 @@ export default function Home() {
 
   let linkTl = new TimelineLite({ paused: true })
 
-  // Mouseenter function
-  const enterAnimation = () => {
-    linkTl.tweenFromTo(0, "midway")
-    console.log('enter')
-  }
+  // // Mouseenter function
+  // const enterAnimation = () => {
+  //   linkTl.tweenFromTo(0, "midway")
+  // }
 
-  // Mouseleave function
-  const leaveAnimation = () => {
-    linkTl.play()
-    console.log('leave')
-  }
+  // // Mouseleave function
+  // const leaveAnimation = () => {
+  //   linkTl.play()
+  // }
 
   useEffect(() => {
     //Header vars
@@ -56,31 +55,15 @@ export default function Home() {
     const fourthAboutLine = thirdAboutLine.nextSibling
     const fifthAboutLine = fourthAboutLine.nextSibling
 
-
     let underlineGit = myLinks.children[0].children[0].children[0].children[0]
     // link.tl = gsap.timeline({ paused: true })
     // console.log(underlineGit, "underlineGit")
 
-    linkTl.fromTo(underlineGit, {
-      width: "0%",
-      left: "0%",
-    }, {
-      width: "100%",
-      duration: 1,
-    })
+    // linkTl.fromTo(underlineGit, { width: "0%", left: "0%", }, { width: "100%", duration: 1, })
 
-    linkTl.add("midway");
+    // linkTl.add("midway");
 
-    linkTl.fromTo(underlineGit, {
-      width: "100%",
-      left: "0%",
-    }, {
-      width: "0%",
-      left: "100%",
-      duration: 1,
-      immediateRender: false
-    })
-
+    // linkTl.fromTo(underlineGit, { width: "100%", left: "0%", }, { width: "0%", left: "100%", duration: 1, immediateRender: false })
 
     // myLinks.childNodes.forEach((link) => {
     //   let underline = link.children[0].children[0].children[0]
@@ -193,9 +176,9 @@ export default function Home() {
             </div>
             <div className="column">
               <ul className="links" ref={elem => myLinks = elem}>
-                <div className="link-container"><li><a href="https://github.com/cmtran09">GitHub<span onMouseEnter={() => enterAnimation()} onMouseLeave={() => leaveAnimation()} className="underline"></span></a></li></div>
-                <div className="link-container"><li><a href="https://uk.linkedin.com/in/cmtran09">LinkedIn<span onMouseEnter={() => enterAnimation()} onMouseLeave={() => leaveAnimation()} className="underline"></span></a></li></div>
-                <div className="link-container"><li><a href="https://www.codewars.com/users/cmtran09">CodeWars<span onMouseEnter={() => enterAnimation()} onMouseLeave={() => leaveAnimation()} className="underline"></span></a></li></div>
+                <MyLinks linkTo="GitHub" linkAddress="https://github.com/cmtran09" />
+                <MyLinks linkTo="LinkedIn" linkAddress="https://uk.linkedin.com/in/cmtran09" />
+                <MyLinks linkTo="CodeWars" linkAddress="https://www.codewars.com/users/cmtran09" />
               </ul>
             </div>
           </div>
