@@ -13,6 +13,7 @@ import SkillIcons from '../SkillIcons/SkillIcons'
 export default function Home() {
   const [skill, setSkill] = useState('')
   let main = useRef(null)
+  let header = useRef(null)
   let name = useRef(null)
   let aboutContent = useRef(null)
   let myLinks = useRef(null)
@@ -22,22 +23,28 @@ export default function Home() {
   let projects = useRef(null)
   let tl = new TimelineLite()
 
-  let linkTl = new TimelineLite({paused:true})
+  let linkTl = new TimelineLite({ paused: true })
 
   // Mouseenter function
   const enterAnimation = () => {
     linkTl.tweenFromTo(0, "midway")
+    console.log('enter')
   }
 
   // Mouseleave function
   const leaveAnimation = () => {
     linkTl.play()
+    console.log('leave')
   }
 
   useEffect(() => {
-    //Name var
+    //Header vars
+    const header1 = header.children[0].children[0].children[0]
+    const header2 = header.children[0].children[1].children[0]
+    const header3 = header.children[0].children[2].children[0]
+    const headerUnderline = header.children[0].children[3]
+    //Name vars
     const myName = name.firstElementChild
-    console.log('myName', myName)
     //Link vars
     const firstLink = myLinks.children[0]
     const secondLink = firstLink.nextSibling
@@ -50,48 +57,77 @@ export default function Home() {
     const fifthAboutLine = fourthAboutLine.nextSibling
 
 
+    let underlineGit = myLinks.children[0].children[0].children[0].children[0]
+    // link.tl = gsap.timeline({ paused: true })
+    // console.log(underlineGit, "underlineGit")
 
-    myLinks.childNodes.forEach((link) => {
-      let underline = link.children[0].children[0].children[0]
-      // link.tl = gsap.timeline({ paused: true })
-      console.log(underline)
-
-      linkTl.fromTo(underline, {
-        width: "0%",
-        left: "0%",
-      }, {
-        width: "100%",
-        duration: 1,
-      })
-
-      linkTl.add("midway");
-
-      linkTl.fromTo(underline, {
-        width: "100%",
-        left: "0%",
-      }, {
-        width: "0%",
-        left: "100%",
-        duration: 1,
-        immediateRender: false
-      })
+    linkTl.fromTo(underlineGit, {
+      width: "0%",
+      left: "0%",
+    }, {
+      width: "100%",
+      duration: 1,
     })
+
+    linkTl.add("midway");
+
+    linkTl.fromTo(underlineGit, {
+      width: "100%",
+      left: "0%",
+    }, {
+      width: "0%",
+      left: "100%",
+      duration: 1,
+      immediateRender: false
+    })
+
+
+    // myLinks.childNodes.forEach((link) => {
+    //   let underline = link.children[0].children[0].children[0]
+    //   // link.tl = gsap.timeline({ paused: true })
+    //   console.log(underline)
+
+    //   linkTl.fromTo(underline, {
+    //     width: "0%",
+    //     left: "0%",
+    //   }, {
+    //     width: "100%",
+    //     duration: 1,
+    //   })
+
+    //   linkTl.add("midway");
+
+    //   linkTl.fromTo(underline, {
+    //     width: "100%",
+    //     left: "0%",
+    //   }, {
+    //     width: "0%",
+    //     left: "100%",
+    //     duration: 1,
+    //     immediateRender: false
+    //   })
+    // })
 
     //Remove Initial Flash
     TweenMax.to(main, 0, { css: { visibility: 'visible' } })
     // Name animation
     tl
+      .from([header1, header2, header3], 0.8, { y: 33, ease: Power3.easeOut }, 0)
+      .from(headerUnderline, 3, { width: 0, ease: Power3.easeOut }, 0)
+
+      .from(myName, 2, { opacity: 0, ease: Sine.easeOut }, 0.1)
       .from(myName, 1.2, { y: 800, ease: Power3.easeOut }, 0.2)
-      .from(myName, 2, { opacity: 0, ease: Sine.easeOut }, 0)
+      // .from(header1, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
+      // .from(header2, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
+      // .from(header3, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
       // About animation
-      .from(firstAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
-      .from(secondAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
-      .from(thirdAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
-      .from(fourthAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
-      .from(fifthAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.7)
-    // About animation
+      .from(firstAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.9)
+      .from(secondAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.9)
+      .from(thirdAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.9)
+      .from(fourthAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.9)
+      .from(fifthAboutLine.children, 0.8, { y: 33, ease: Power3.easeOut }, 0.9)
     // Links animation
-    tl.staggerFrom([firstLink.children, secondLink.children, thirdLink.children], 1, {
+    tl.staggerFrom([firstLink.children, secondLink.children, thirdLink.children], 0.9, {
       y: 33,
       ease: Power3.easeOut,
       delay: 0.3
@@ -121,11 +157,21 @@ export default function Home() {
     <main ref={elem => main = elem} >
       <section className="section">
         <div className="container main-wrapper" >
-          <div className="container header-wrapper">
+          <div style={{ position: "relative" }} className="container header-wrapper" ref={elem => header = elem}>
             <div className="level header is-mobile">
-              <p className="level-left">Portfolio</p>
-              <p className="level-item">2020</p>
-              <p className="level-right">London</p>
+              <div className="header-container"><p className="level-left">Portfolio</p></div>
+              <div className="header-container"><p className="level-item">2020</p></div>
+              <div className="header-container"><p className="level-right">London</p></div>
+              <span style={{
+                display: "block",
+                position: "absolute",
+                marginTop: "10",
+                bottom: "0",
+                left: "0",
+                width: "100%",
+                height: "3px",
+                backgroundColor: "black"
+              }}></span>
             </div>
           </div>
           <div className="name-container" ref={elem => name = elem}>
@@ -147,9 +193,9 @@ export default function Home() {
             </div>
             <div className="column">
               <ul className="links" ref={elem => myLinks = elem}>
-                <div className="link-container"><li><a href="https://github.com/cmtran09">GitHub<span onMouseEnter={e => enterAnimation()} onMouseLeave={e => leaveAnimation()} className="underline"></span></a></li></div>
-                <div className="link-container"><li><a href="https://uk.linkedin.com/in/cmtran09">LinkedIn<span onMouseEnter={e => enterAnimation()} onMouseLeave={e => leaveAnimation()} className="underline"></span></a></li></div>
-                <div className="link-container"><li><a href="https://www.codewars.com/users/cmtran09">CodeWars<span onMouseEnter={e => enterAnimation()} onMouseLeave={e => leaveAnimation()} className="underline"></span></a></li></div>
+                <div className="link-container"><li><a href="https://github.com/cmtran09">GitHub<span onMouseEnter={() => enterAnimation()} onMouseLeave={() => leaveAnimation()} className="underline"></span></a></li></div>
+                <div className="link-container"><li><a href="https://uk.linkedin.com/in/cmtran09">LinkedIn<span onMouseEnter={() => enterAnimation()} onMouseLeave={() => leaveAnimation()} className="underline"></span></a></li></div>
+                <div className="link-container"><li><a href="https://www.codewars.com/users/cmtran09">CodeWars<span onMouseEnter={() => enterAnimation()} onMouseLeave={() => leaveAnimation()} className="underline"></span></a></li></div>
               </ul>
             </div>
           </div>

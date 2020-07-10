@@ -6,8 +6,13 @@
 }
 
 .header-wrapper{
-  border-bottom: 2px solid black;
+  // border-bottom: 2px solid black;
   padding-bottom: 15px;
+}
+
+.header-container{
+  height: 4vw;
+  overflow: hidden;
 }
 
 div.container.main-wrapper{
@@ -97,6 +102,7 @@ p.about{
   font-size: 2vw;
   padding-right: 40px;
 }
+
 .about-line-container{
   overflow: hidden;
   height: 3vw;
