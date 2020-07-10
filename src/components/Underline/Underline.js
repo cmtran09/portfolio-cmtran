@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { TweenMax } from 'gsap'
 
-export default function Underline({triggerElement, viewport}) {
+export default function Underline({ triggerElement, viewport, lineStyles }) {
   let underline = useRef(null)
 
   useEffect(() => {
@@ -16,6 +16,8 @@ export default function Underline({triggerElement, viewport}) {
     }, 0.1)
   }, [])
   return (
-    <span ref={elem => underline = elem} className="header-underline"></span>
+    <span
+      style={lineStyles} 
+      ref={elem => underline = elem} className="header-underline"></span>
   )
 }

@@ -11,6 +11,7 @@ import ProjectLink from '../ProjectLink/ProjectLink'
 import SkillIcons from '../SkillIcons/SkillIcons'
 import MyLinks from '../MyLinks/MyLinks'
 import Underline from '../Underline/Underline'
+import Contact from '../Contact/Contact'
 
 export default function Home() {
   const [skill, setSkill] = useState('')
@@ -152,13 +153,14 @@ export default function Home() {
         <ProjectLink projectName="Vanilla JS Tetris" dateComplete="2019" projectLink="https://bit.ly/3h9tCrD" projectRepo="https://bit.ly/2YjYJYY" projectVideo='../../video/tetris.mp4' projectImage='' />
       </section>
       <section className="section">
-        <div className="container contact-wrapper">
+        <Contact />
+        {/* <div className="container contact-wrapper">
           <h1 className="contact">Contact</h1>
           <p className="about">
             I am currently looking for a Junior Software Engineer/Front-End/Fullstack role in London. Feel free to drop me a LinkedIn message or email at cuomantran@gmail.com.
           </p>
           <Underline triggerElement="10px" viewport="100%"/>
-        </div>
+        </div> */}
       </section>
     </main >
   )
