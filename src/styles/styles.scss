@@ -7,15 +7,28 @@
 
 main{
   visibility: hidden;
-  margin-top: 60px;
-  margin-left: 7%;
-  width: 65%;
+  @media only screen and (min-width: 640px) {
+    margin-top: 60px;
+    width: 70%;
+	}
+  // margin-top: 60px;
+  // margin-left: 7%;
+  width: 100%;
+  .left-main-gutter {
+    // border:2px solid black;
+    // width: 70%;
+    padding: 0;
+  }
+  .main-gutter {
+    // border:2px solid green;
+    // width: 70%;
+    // padding: 0;
+  }
   .header-wrapper{
     position: "relative";
-    // border-bottom: 2px solid black;
-    // padding-bottom: 15px;
+      // padding-bottom: 15px;
     .header-underline{
-      display: block;
+      // display: block;
       position: absolute;
       // marginTop: 10;
       bottom: 0;
@@ -25,16 +38,22 @@ main{
       background-color: black;
     }
   }
-    .header-underline{
-      display: block;
-      position: absolute;
-      // marginTop: 10;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background-color: black;
-    }
+  .header-underline{
+    // display: block;
+    position: absolute;
+    // marginTop: 10;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: black;
+  }
+}
+
+div.columns.main-column.is-mobile.hero-content{
+  @media only screen and (max-width: 640px) {
+    margin-bottom: 0;
+  }
 }
 
 .header-container{
@@ -42,31 +61,42 @@ main{
   overflow: hidden;
 }
 
-// div.underline-container{
-//   border: 2px solid green;
-// //   width: 100%;
-// //   height: 30px;
-// //   // overflow: hidden; 
+// section.section.skills-section{
+//   @media only screen and (min-width: 640px) {
+//     padding-bottom: 190px;
+// 	}
 // }
 
 div.container.main-wrapper{
-  padding-bottom: 190px;
-  // border-bottom: 2px solid black;
+  @media only screen and (min-width: 640px) {
+    padding-bottom: 190px;
+	}
 }
 
 section.section{
   padding-bottom: 0;
+  padding-left: 0;
+  @media only screen and (max-width: 640px) {
+    padding-top: 0;
+    padding-right: 0;
+	}
   // margin-left: 7%;
   // width: 65%;
 }
 
 div.name-container{
   height: 20vw;
+  @media only screen and (max-width: 640px) {
+    height: 15vw;
+  }
   overflow: hidden;
 }
 
 h1.name{
-  margin:15px 0 20px 0;
+  @media only screen and (min-width: 640px) {
+    margin:15px 0 20px 0;
+  }
+  // margin:15px 0 20px 0;
   font-family: 'Lato', sans-serif;
   // font-size: 10vw;
   opacity: 1;
@@ -115,9 +145,11 @@ ul.links{
 }
 
 p.about{
+  @media only screen and (min-width: 640px) {
+    padding-right: 40px;
+  }
   font-family: 'Lato', sans-serif;
   font-size: 2vw;
-  padding-right: 40px;
 }
 
 .about-line-container{
@@ -170,8 +202,9 @@ p.skill-text{
 
 .skills-wrapper {
   width: 100%;
-  // border-bottom: 2px solid black;
-  padding-bottom: 48px;
+  @media only screen and (min-width: 640px) {
+    padding-bottom: 48px;
+	}
 }
 
 span.icon{
@@ -181,14 +214,19 @@ span.icon{
 }
 
 div.container.project-wrapper{
-  padding-bottom: 4vw;
-  padding-top: 4vw;
+  @media only screen and (min-width: 640px) {
+    padding-bottom: 4vw;
+    padding-top: 4vw;
+  }
+  padding-bottom: 20px;
   // border-bottom: 1px solid black;
 }
 div.container.project-wrapper:last-child{
-  padding-bottom: 200px;
-  padding-top: 4vw;
-  // border-bottom: 2px solid black;
+  @media only screen and (min-width: 640px) {
+    padding-bottom: 100px;
+    padding-top: 4vw;
+	}
+
 }
 
 p.project-name{
@@ -219,17 +257,27 @@ p.project-name{
 }
 
 h1.contact{
-  margin:15px 0 20px 0;
+  @media only screen and (min-width: 640px) {
+    margin:10px 0 20px 0;
+  }
+  margin: 0;
   font-family: 'Lato', sans-serif;
   // font-size: 10vw;
   font-size: 8vw;
   color: black
 }
 
+section.section.contact-section{
+  padding-top: 10px;
+  padding-bottom: 100px;
+}
+
 div.container.contact-wrapper{
-  // border-bottom: 2px solid black;
-  padding-bottom: 80px;
-  margin-bottom: 50px;
+  @media only screen and (min-width: 640px) {
+    padding-bottom: 80px;
+    margin-bottom: 50px;
+  }
+  padding-bottom: 30px;
   .contact-line-container{
     overflow: hidden;
   }
@@ -240,13 +288,4 @@ div.container.contact-wrapper{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  // align-items: center;
-  // margin-top: 45vh;
-  // justify-content: center;
 }
-
-// .react-player {
-//   position: absolute;
-//   top: -1110;
-//   left: 1000;
-// }

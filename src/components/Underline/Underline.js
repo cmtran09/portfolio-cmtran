@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { TweenMax } from 'gsap'
 
-export default function Underline({ triggerElement, viewport, lineStyles }) {
+export default function Underline({ triggerElement, viewport, lineStyles, last }) {
   let underline = useRef(null)
 
   useEffect(() => {
@@ -9,15 +9,17 @@ export default function Underline({ triggerElement, viewport, lineStyles }) {
       scrollTrigger: {
         trigger: underline,
         start: `${triggerElement} ${viewport}`,
-        markers: true,
-        // scrub: true
+        end: "+=40vw",
+        // markers: !last ? false : true,
+        // scrub: !last ? true : 1
+        scrub:  1
       },
       width: 0,
     }, 0.1)
   }, [])
   return (
     <span
-      style={lineStyles} 
+      style={lineStyles}
       ref={elem => underline = elem} className="header-underline"></span>
   )
 }

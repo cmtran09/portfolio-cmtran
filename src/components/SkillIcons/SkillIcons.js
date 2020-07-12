@@ -26,7 +26,7 @@ export default function SkillIcons() {
       scrollTrigger: {
         trigger: skillSection,
         start: "top 60%",
-        markers: true,
+        // markers: true,
         // scrub: true
       },
       x: 80,
