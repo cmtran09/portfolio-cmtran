@@ -149,12 +149,12 @@ export default function Home() {
           </section>
           <SkillIcons skillIconsRef={skillIcons} />
           <section className="section" ref={elem => projects = elem}>
-            <ProjectLink projectName="System Monitor" dateComplete="2020" projectLink="" projectRepo="https://bit.ly/2Yfrk1e" projectVideo='src/video/system-monitor.mp4' projectImage='../../images/tetris.png' />
+            <ProjectLink projectName="System Monitor" dateComplete="2020" projectLink="" projectRepo="https://bit.ly/2Yfrk1e" projectVideo='src/video/system-monitor.mp4' projectImage='' />
             <ProjectLink projectName="Socket.io Chatroom" dateComplete="2020" projectLink="https://bit.ly/30xceqU" projectRepo="https://bit.ly/3dTy1wH" projectVideo='src/video/chatroom.mp4' projectImage='' />
             <ProjectLink projectName="Scribble" dateComplete="2020" projectLink="https://bit.ly/2XOcrnG" projectRepo="https://bit.ly/2YfppK4" projectVideo='src/video/scribble.mp4' projectImage='' />
             <ProjectLink projectName="Swell" dateComplete="2019" projectLink="https://bit.ly/37hC43v" projectRepo="https://bit.ly/2XNvD58" projectVideo='src/video/swell.mp4' projectImage='' />
-            <ProjectLink projectName="Text Translate" dateComplete="2019" projectLink="https://project-z-text-translate.herokuapp.com/" projectRepo="https://github.com/cmtran09/project-z-text-translate" projectVideo='src/video/text-translate.mp4' projectImage='../../images/tetris.png' />
-            <ProjectLink projectName="NBA Comparison" dateComplete="2019" projectLink="https://bit.ly/2MKaMJp" projectRepo="https://bit.ly/2AyMtfk" projectVideo='src/video/nba.mp4' projectImage='../../images/tetris.png' />
+            <ProjectLink projectName="Text Translate" dateComplete="2019" projectLink="https://project-z-text-translate.herokuapp.com/" projectRepo="https://github.com/cmtran09/project-z-text-translate" projectVideo='src/video/text-translate.mp4' projectImage='' />
+            <ProjectLink projectName="NBA Comparison" dateComplete="2019" projectLink="https://bit.ly/2MKaMJp" projectRepo="https://bit.ly/2AyMtfk" projectVideo='src/video/nba.mp4' projectImage='' />
             <ProjectLink projectName="PotterAPI Pair" dateComplete="2019" projectLink="https://bit.ly/2XPOQDa" projectRepo="https://bit.ly/3cKaYTK" projectVideo='src/video/potter-pair.mp4' projectImage='' />
             <ProjectLink projectName="Vanilla JS Tetris" dateComplete="2019" projectLink="https://bit.ly/3h9tCrD" projectRepo="https://bit.ly/2YjYJYY" projectVideo='src/video/tetris.mp4' projectImage='' />
           </section>
