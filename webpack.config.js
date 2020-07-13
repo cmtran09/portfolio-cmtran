@@ -9,7 +9,7 @@ module.exports = {
 		filename: 'bundle.js',
 		path: path.resolve('dist'),
 		// publicPath: '/'
-		publicPath: '/'
+		publicPath: '/portfolio-cmtran/'
 	},
 	module: {
 		rules: [
