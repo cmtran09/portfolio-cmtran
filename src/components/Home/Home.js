@@ -150,7 +150,7 @@ export default function Home() {
           <SkillIcons skillIconsRef={skillIcons} />
           <section className="section" ref={elem => projects = elem}>
             <ProjectLink projectName="System Monitor" dateComplete="2020" projectLink="" projectRepo="https://bit.ly/2Yfrk1e" projectVideo='src/video/system-monitor.mp4' projectImage='' />
-            <ProjectLink projectName="Socket.io Chatroom" dateComplete="2020" projectLink="https://bit.ly/30xceqU" projectRepo="https://bit.ly/3dTy1wH" projectVideo='src/video/chatroom.mp4' projectImage='' />
+            <ProjectLink projectName="Socket.io Chatroom" dateComplete="2020" projectLink="https://bit.ly/30xceqU" projectRepo="https://bit.ly/3dTy1wH" projectVideo='https://github.com/cmtran09/portfolio-cmtran/blob/master/src/video/chatroom.mp4?raw=true' projectImage='' />
             <ProjectLink projectName="Scribble" dateComplete="2020" projectLink="https://bit.ly/2XOcrnG" projectRepo="https://bit.ly/2YfppK4" projectVideo='src/video/scribble.mp4' projectImage='' />
             <ProjectLink projectName="Swell" dateComplete="2019" projectLink="https://bit.ly/37hC43v" projectRepo="https://bit.ly/2XNvD58" projectVideo='src/video/swell.mp4' projectImage='' />
             <ProjectLink projectName="Text Translate" dateComplete="2019" projectLink="https://project-z-text-translate.herokuapp.com/" projectRepo="https://github.com/cmtran09/project-z-text-translate" projectVideo='src/video/text-translate.mp4' projectImage='' />
