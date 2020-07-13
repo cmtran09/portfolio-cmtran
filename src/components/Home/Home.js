@@ -106,7 +106,6 @@ export default function Home() {
     <main ref={elem => main = elem} >
       <div class="columns">
         <div class="column is-2 left-main-gutter is-hidden-mobile">
-          First column
         </div>
         <div class="column is-10 main-gutter">
           <section className="section">
