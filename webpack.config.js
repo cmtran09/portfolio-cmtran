@@ -8,8 +8,8 @@ module.exports = {
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve('dist'),
-		publicPath: '/'
-		// publicPath: '/project-2-potterapi-pair/'
+		// publicPath: '/'
+		publicPath: '/portfolio-cmtran/'
 	},
 	module: {
 		rules: [
