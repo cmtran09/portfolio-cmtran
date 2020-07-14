@@ -72,7 +72,7 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
 
           <div className="player-wrapper" style={{}}>
             <div className="player-inner" style={{}}>
-              <img className="loading-image" src="../../images/loading.svg" alt=""/>
+              <img className="loading-image" src="https://raw.githubusercontent.com/cmtran09/portfolio-cmtran/master/src/images/loading.svg" alt=""/>
               <ReactPlayer width='120%' height='120%' className='react-player' url={projectVideo} playing loop />
             </div>
           </div>
