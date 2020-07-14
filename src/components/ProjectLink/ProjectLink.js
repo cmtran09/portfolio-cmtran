@@ -66,11 +66,13 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
             zIndex: "9",
             background: "rgba(0, 0, 0, 0.5)"
           }}>
-          <span className="icon is-large">
+          <span style={{ cursor: "pointer" }} className="icon is-large">
             <i className="fas fa-2x fa-times-circle"></i>
           </span>
+
           <div className="player-wrapper" style={{}}>
             <div className="player-inner" style={{}}>
+              <img className="loading-image" src="../../images/loading.svg" alt=""/>
               <ReactPlayer width='120%' height='120%' className='react-player' url={projectVideo} playing loop />
             </div>
           </div>
