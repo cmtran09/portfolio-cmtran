@@ -61,8 +61,8 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
         <div
           className="demo-wrapper"
           onClick={() => {
-            setDemoIsActive(!demoIsActive)
-            tl.reversed()
+            // setDemoIsActive(!demoIsActive)
+            // tl.reversed()
             // tl.resume()
           }}
           style={{
