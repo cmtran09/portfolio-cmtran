@@ -23,10 +23,14 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
   }, [])
 
   const projectAnimation = () => {
-    if (projectContainer.classList.contains('hidden') !== true) return tl.reversed(!tl.reversed())
+    if (projectContainer.classList.contains('hidden') !== true && demoIsActive === false) {
+      console.log("enter")
+      return tl.reversed(!tl.reversed())
+    }
   }
 
   const handleMouseLeave = () => {
+    console.log("left")
     if (!demoIsActive && projectContainer.classList.contains('hidden') !== true) return tl.reversed(!tl.reversed())
   }
 
@@ -45,7 +49,10 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
         ref={elem => demoPlay = elem}
         onClick={() => {
           setDemoIsActive(!demoIsActive)
-          !demoIsActive ? tl.pause() : tl.resume()
+          tl.reversed(!tl.reversed())
+          // setDemoIsActive(true)
+          // tl.pause()
+          // // !demoIsActive ? tl.pause() : tl.resume()
           // tl.reversed(false)
         }}
         className="demo-link" style={{ cursor: "pointer" }}>Video Demo
@@ -55,7 +62,8 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
           className="demo-wrapper"
           onClick={() => {
             setDemoIsActive(!demoIsActive)
-            tl.resume()
+            tl.reversed()
+            // tl.resume()
           }}
           style={{
             position: "fixed",
@@ -66,19 +74,24 @@ export default function ProjectLink({ projectName, projectLink, projectRepo, pro
             zIndex: "9",
             background: "rgba(0, 0, 0, 0.5)"
           }}>
-          <span style={{ cursor: "pointer" }} className="icon is-large">
+          <span style={{ cursor: "pointer", zIndex: "1222" }} onClick={() => {
+            setDemoIsActive(false)
+            tl.reversed()
+            // tl.resume()
+            // tl.reversed(false)
+          }}
+            className="icon is-large">
             <i className="fas fa-2x fa-times-circle"></i>
           </span>
-
           <div className="player-wrapper" style={{}}>
             <div className="player-inner" style={{}}>
-              <img className="loading-image" src="https://raw.githubusercontent.com/cmtran09/portfolio-cmtran/master/src/images/loading.svg" alt=""/>
-              <ReactPlayer width='120%' height='120%' className='react-player' url={projectVideo} playing loop />
+              <img className="loading-image" src="https://raw.githubusercontent.com/cmtran09/portfolio-cmtran/master/src/images/loading.svg" alt="" />
+              <ReactPlayer width='160%' height='160%' className='react-player' url={projectVideo} playing loop />
             </div>
           </div>
         </div>
       }
-      <Underline triggerElement="10%" viewport="95%"/>
+      <Underline triggerElement="10%" viewport="95%" />
     </div >
   )
 }
